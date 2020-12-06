@@ -69,7 +69,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         let mut bits = line.split_whitespace();
         let version: Version = bits.nth(flags.key - 1).and_then(|xs| {
-            xs.parse().ok()
+            if xs.starts_with('v') {
+                xs[1..].parse().ok()
+            } else {
+                xs.parse().ok()
+            }
         }).unwrap_or_else(|| {
             invalid.clone()
         });
