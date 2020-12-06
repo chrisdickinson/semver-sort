@@ -7,9 +7,9 @@ $ cat foo.txt
 hi there 0.1.0
 whoa there 2.0.0
 no way 0.1.0-alpha
-$ semver-sort -k3 < foo.txt
-hi there 0.1.0
+$ semver-sort -k3 --prerelease < foo.txt
 no way 0.1.0-alpha
+hi there 0.1.0
 whoa there 2.0.0
 ```
 
